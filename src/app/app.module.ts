@@ -14,6 +14,9 @@ import { UserFurnitureComponent } from './components/user-furniture/user-furnitu
 import {MatDialog} from '@angular/material/dialog';
 import { UpdateFurnitureComponent } from './components/update-furniture/update-furniture.component';
 import { AddFurnitureComponent } from './components/add-furniture/add-furniture.component';
+import { DetailsComponent } from './components/details/details.component';
+import {ToastrModule} from 'ngx-toastr';
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 
@@ -23,7 +26,8 @@ import { AddFurnitureComponent } from './components/add-furniture/add-furniture.
     FurnitureListComponent,
     UserFurnitureComponent,
     UpdateFurnitureComponent,
-    AddFurnitureComponent
+    AddFurnitureComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,10 @@ import { AddFurnitureComponent } from './components/add-furniture/add-furniture.
     FormsModule,
     MatCardModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    ToastrModule,
+    ToastrModule.forRoot(),
+    LayoutModule
   ],
   providers: [FurnitureService],
   bootstrap: [AppComponent]

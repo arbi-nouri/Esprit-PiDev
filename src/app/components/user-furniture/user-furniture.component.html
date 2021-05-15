@@ -1,0 +1,92 @@
+<p>user-furniture works!</p>
+<!--
+<button mat-raised-button class="btn btn-outline-primary my-2 my-sm-0" mat-button (click)="openDialog()" type="submit"> Add furniture</button>
+-->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add Furniture
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Furniture</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-furniture></app-add-furniture>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let myfurniture of furnitures">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{myfurniture.name}}</h5>
+          <p class="card-text">{{myfurniture.type}}</p>
+          <p class="card-text">{{myfurniture.description}}</p>
+          <p class="card-text">{{myfurniture.price}}</p>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#update" (click)="update(myfurniture)">
+            Update
+          </button>
+          <button class="btn btn-danger" (click)="deleteFurniture(myfurniture)">Delete</button>
+        </div>
+      </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="updatelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateLabel">UPDATE Furniture</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form">
+
+
+                <div class="form-group">
+                    <label class="mb-1">Furniture name</label>
+            <input class="form-control w-25 mb-3"  type="text" name="name" [(ngModel)]="furniture.name" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <label class="mb-1">Type</label>
+                    <select class="form-select w-25 mb-3" name="type" [(ngModel)]="furniture.type">
+                        <option selected>Table</option>
+                        <option>Chair</option>
+                      </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="mb-1">Descirption</label>
+            <input class="form-control w-25 mb-3" type="text" name="description" [(ngModel)]="furniture.description" placeholder="Description">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="mb-1">Price</label>
+            <input class="form-control w-25 mb-3" type="number" name="price" [(ngModel)]="furniture.price" placeholder="0" min="0">
+                </div>
+
+                <input class="form-control w-25 mb-3" type="file"   accept="image/png, image/jpeg">
+
+            <button class="btn btn-success" (click)="updateFurniture()">Confirm</button>
+
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

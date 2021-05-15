@@ -1,0 +1,61 @@
+<h1 class="mt-3 mb-3">Meuble</h1>
+<div class="container">
+  <div class="row">
+<input class="form-control w-50 col-6" matInput type="text"  [(ngModel)]="search" name = "search" (input)="searchFurniture()">
+
+  <div class="form-group col-6">
+    <div class="row">
+    <label class=" w-25 col-3">Search per : </label>
+    <select (click)="searchFurnitureByType()" name="name" [(ngModel)]="searchtype" class=" form-control form-select w-25 col-4" >
+      <option selected value="ShowAll">ShowAll</option>
+      <hr>
+      <option>Table</option>
+      <option>Chair</option>
+      <option>Closet</option>
+    </select>
+    <i class="fa fa-window-close col-1 fa-3x" style="color: #b31d1d" (click)="furnitureList()"></i>
+    </div>
+  </div>
+  </div>
+  <hr>
+<br>
+<button routerLink="/userfurniture" class="btn btn-danger">My Fruniture</button>
+<br>
+<br>
+
+<mat-grid-list cols="3" rowHeight="1:1">
+
+
+<div  *ngFor = "let tempFurniture of furnitures">
+
+
+    <mat-grid-tile class="bg-light">
+
+        <mat-card class="example-card bg-light">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{tempFurniture.name}}</mat-card-title>
+              <mat-card-subtitle>{{tempFurniture.type}}</mat-card-subtitle>
+              <mat-card-subtitle>{{tempFurniture.price | currency:'DT '}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                <mat-card-subtitle>{{tempFurniture.description}}</mat-card-subtitle>
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button class="btn btn-primary" (click)="getDetail(tempFurniture)">Details</button>
+              <button mat-button class="btn btn-success">Add</button>
+            </mat-card-actions>
+          </mat-card>
+
+
+</mat-grid-tile>
+    </div>
+  <app-details [furniture]="clicked"></app-details>
+</mat-grid-list>
+
+
+</div>
+

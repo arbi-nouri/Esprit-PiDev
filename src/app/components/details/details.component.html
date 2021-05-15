@@ -1,0 +1,27 @@
+{{furniture.name}}
+lalalala
+
+<mat-grid-tile class="bg-light">
+
+  <mat-card class="example-card bg-light">
+    <mat-card-header>
+
+
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{furniture.name}}</mat-card-title>
+      <mat-card-subtitle>{{furniture.type}}</mat-card-subtitle>
+      <mat-card-subtitle>{{furniture.price | currency:'DT '}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        <mat-card-subtitle>{{furniture.description}}</mat-card-subtitle>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="btn btn-primary">Details</button>
+      <button mat-button class="btn btn-success">Add</button>
+    </mat-card-actions>
+  </mat-card>
+
+</mat-grid-tile>

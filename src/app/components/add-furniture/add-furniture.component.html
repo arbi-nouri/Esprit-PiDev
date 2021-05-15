@@ -1,0 +1,36 @@
+<form #modelForm="ngForm" class="form" (ngSubmit)="addFurniture()">
+
+
+  <div class="form-group">
+    <label class="mb-1">Furniture name</label>
+    <input #nameId required  class="form-control w-25 mb-3"  type="text" name="name" [(ngModel)]="furniture.name">
+    <span *ngIf="nameId.validationMessage" class="alert-danger">*required</span>
+  </div>
+
+  <div class="form-group">
+    <label class="mb-1">Type</label>
+    <select #typeId  class="form-select w-25 mb-3" name="type" [(ngModel)]="furniture.type">
+      <option selected>Table</option>
+      <option>Chair</option>
+      <option>Closet</option>
+    </select>
+    <span *ngIf="typeId.ontouchend" >* required</span>
+  </div>
+
+
+  <div class="form-group">
+    <label class="mb-1">Descirption</label>
+    <input #descrpId class="form-control w-25 mb-3" type="text" name="description" [(ngModel)]="furniture.description" placeholder="Description">
+  </div>
+
+
+  <div class="form-group">
+    <label class="mb-1">Price</label>
+    <input #priceId required class="form-control w-25 mb-3" type="number" name="price" [(ngModel)]="furniture.price" placeholder="0" min="0">
+  </div>
+
+  <input class="form-control w-25 mb-3" type="file"   accept="image/png, image/jpeg">
+
+  <button class="btn btn-success" (click)="addFurniture()" data-dismiss="modal" [disabled]="!modelForm.form.valid">Confirm</button>
+
+</form>
